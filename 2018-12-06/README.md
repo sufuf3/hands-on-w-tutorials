@@ -1,9 +1,9 @@
-# Linux Network Virtualization & Open vSwitch 101
+# CNI Introduction && Kubernetes advanced resource features - Episode 1
 
 ## Table of Contents
 - [Requirements](#requirements)
-- [Linux Network Virtualization](linux-network-virtualization)
-- [Open vSwitch 101](open-vswitch-101)
+- [CNI Introduction](#cni-introduction)
+- [Kubernetes advanced resource features - Episode 1](#kubernetes-advanced-resource-features-episode-1)
 
 ## Requirements
 
@@ -40,13 +40,13 @@ vagrant version
 
 ```sh
 cd ~/ && git clone https://github.com/sufuf3/hands-on-w-tutorials.git
-cd ~/hands-on-w-tutorials/2018-11-29/ && vagrant up --provider=virtualbox
+cd ~/hands-on-w-tutorials/2018-12-06/ && vagrant up --provider=virtualbox
 ```
 
-## Linux Network Virtualization
+## CNI Introduction
 
-- Slides: http://bit.ly/vnet1129
+- Slides: 
 
-## Open vSwitch 101
+## Kubernetes advanced resource features - Episode 1
 
-- Slides: http://bit.ly/ovs1129
+- Slides: 
