@@ -1,9 +1,8 @@
-# CNI Introduction && Kubernetes advanced resource features - Episode 1
+# CNI Introduction
 
 ## Table of Contents
 - [Requirements](#requirements)
 - [CNI Introduction](#cni-introduction)
-- [Kubernetes advanced resource features - Episode 1](#kubernetes-advanced-resource-features-episode-1)
 
 ## Requirements
 
@@ -46,7 +45,3 @@ cd ~/hands-on-w-tutorials/2018-12-06/ && vagrant up --provider=virtualbox
 ## CNI Introduction
 
 - Slides: http://bit.ly/cni1206
-
-## Kubernetes advanced resource features - Episode 1
-
-- Slides: 
