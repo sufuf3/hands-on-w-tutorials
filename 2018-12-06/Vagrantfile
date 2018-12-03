@@ -24,7 +24,8 @@ $hands_on = <<SHELL
 set -e -x -u
 echo "=== Setup Environment ==="
 sudo apt-get update
-sudo apt-get install -y git build-essential bridge-utils ntp jq httpie vim cmake tcpdump unzip tig socat traceroute
+sudo apt-get install -y git nfs-common ntp jq bats httpie silversearcher-ag vim cmake tcpdump unzip tig socat traceroute
+sudo apt-get -y -qq install clang doxygen hugepages build-essential libnuma-dev libpcap-dev inux-headers-`uname -r` dh-autoreconf libssl-dev libcap-ng-dev openssl python python-pip htop bridge-utils
 
 # Install Docker
 # kubernetes official max validated version: 17.06.2~ce-0~ubuntu-xenial
@@ -71,13 +72,19 @@ SHELL
 
 $cni_hands_on = <<SHELL
 mkdir ~/cni-hands-on
-cd ~/cni-hands-on && curl -O -L https://github.com/containernetworking/cni/releases/download/v0.6.0/cni-arm-v0.6.0.tgz
-tar -xzvf cni-amd64-v0.6.0.tgz
+cd ~/cni-hands-on && curl -O -L https://github.com/containernetworking/cni/releases/download/v0.5.2/cni-amd64-v0.5.2.tgz
+tar -xzvf cni-amd64-v0.5.2.tgz
 SHELL
 
-  config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.network "private_network", ip: "10.0.8.10"
-  config.vm.network "private_network", ip: "10.0.9.10"
+  # In order to simulate multiple interfaces
+  # enp0s8
+  config.vm.network :private_network, ip: "172.17.8.100"
+  # enp0s9
+  config.vm.network :private_network, ip: "172.17.8.50"
+  # enp0s10
+  config.vm.network :private_network, ip: "172.17.8.60"
+  # enp0s16
+  config.vm.network :private_network, ip: "172.17.8.70"
 
   if lab_env == true
      config.vm.provision "shell", privileged: false, inline: $hands_on
@@ -107,7 +114,7 @@ SHELL
    config.vm.provider "virtualbox" do |v|
      # Display the VirtualBox GUI when booting the machine
       v.customize ["modifyvm", :id, "--cpus", 2]
-      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--memory", 3072]
       v.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
       v.customize ["setextradata", :id, "VBoxInternal/CPUM/SSE4.1", "1"]
       v.customize ["setextradata", :id, "VBoxInternal/CPUM/SSE4.2", "1"]
