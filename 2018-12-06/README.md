@@ -45,7 +45,7 @@ cd ~/hands-on-w-tutorials/2018-12-06/ && vagrant up --provider=virtualbox
 
 ## CNI Introduction
 
-- Slides: 
+- Slides: http://bit.ly/cni1206
 
 ## Kubernetes advanced resource features - Episode 1
 
