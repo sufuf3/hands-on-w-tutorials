@@ -63,6 +63,7 @@ cat > ~/cni-hands-on/loopback.conf <<"EOF"
     "type": "loopback"
 }
 EOF
+cd ~/ && git clone https://github.com/sufuf3/hands-on-w-tutorials.git
 SHELL
 
   # In order to simulate multiple interfaces
