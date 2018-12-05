@@ -25,7 +25,7 @@ set -e -x -u
 echo "=== Setup Environment ==="
 sudo apt-get update
 sudo apt-get install -y git nfs-common ntp jq bats httpie silversearcher-ag vim cmake tcpdump unzip tig socat traceroute
-sudo apt-get -y -qq install clang doxygen hugepages build-essential libnuma-dev libpcap-dev inux-headers-`uname -r` dh-autoreconf libssl-dev libcap-ng-dev openssl python python-pip htop bridge-utils
+sudo apt-get -y -qq install clang doxygen hugepages build-essential libnuma-dev libpcap-dev linux-headers-`uname -r` dh-autoreconf libssl-dev libcap-ng-dev openssl python python-pip htop bridge-utils
 cd ~/ && git clone https://github.com/sufuf3/hands-on-w-tutorials.git
 
 # Install Docker
