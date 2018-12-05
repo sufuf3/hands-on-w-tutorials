@@ -18,3 +18,16 @@ Decreasing resource requirements for cluster addons may cause system instability
 Overwritten configuration persists through cluster updates, therefore may cause all effects above after a cluster update.
 
 [![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/cluster/addons/cluster-monitoring/README.md?pixel)]()
+
+### Setup steps
+#### Useful link
+
+http://blog.51cto.com/newfly/2294112
+
+#### Steps
+```
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+git checkout v0.3.1
+cp -r deploy/1.8+ ~/hands-on-w-tutorials/2018-12-06_07/metrics-server
+```
+modify `metrics-server-deployment.yaml`
