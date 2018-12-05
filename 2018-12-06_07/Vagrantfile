@@ -26,6 +26,7 @@ echo "=== Setup Environment ==="
 sudo apt-get update
 sudo apt-get install -y git nfs-common ntp jq bats httpie silversearcher-ag vim cmake tcpdump unzip tig socat traceroute
 sudo apt-get -y -qq install clang doxygen hugepages build-essential libnuma-dev libpcap-dev inux-headers-`uname -r` dh-autoreconf libssl-dev libcap-ng-dev openssl python python-pip htop bridge-utils
+cd ~/ && git clone https://github.com/sufuf3/hands-on-w-tutorials.git
 
 # Install Docker
 # kubernetes official max validated version: 17.06.2~ce-0~ubuntu-xenial
@@ -48,7 +49,8 @@ sudo apt-get install -y kubectl kubelet=${KUBE_VERSION}-00 kubeadm=${KUBE_VERSIO
 # Disable swap
 sudo swapoff -a && sudo sysctl -w vm.swappiness=0
 sudo sed '/swap.img/d' -i /etc/fstab
-sudo kubeadm init --kubernetes-version v${KUBE_VERSION} --apiserver-advertise-address=172.17.8.100 --pod-network-cidr=10.244.0.0/16
+sudo kubeadm init --config ~/hands-on-w-tutorials/2018-12-06_07/kubeadm.yaml
+#sudo kubeadm init --kubernetes-version v${KUBE_VERSION} --apiserver-advertise-address=172.17.8.100 --pod-network-cidr=10.244.0.0/16 --config ~/hands-on-w-tutorials/2018-12-06_07/kubeadm.yaml
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
