@@ -45,8 +45,8 @@ cd ~/hands-on-w-tutorials/2018-12-06/ && vagrant up --provider=virtualbox
 
 ## Kubernetes advanced resource features - Episode 1
 
-- Slides: 
+- Slides: http://bit.ly/k8s1206
 
 ## Kubernetes advanced resource features - Episode 2
 
-- Slides: 
+- Slides: http://bit.ly/k8s1207
