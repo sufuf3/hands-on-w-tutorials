@@ -2,8 +2,7 @@
 
 ## Table of Contents
 - [Requirements](#requirements)
-- [Kubernetes advanced resource features - Episode 1](#kubernetes-advanced-resource-features-episode-1)
-- [Kubernetes advanced resource features - Episode 2](#kubernetes-advanced-resource-features-episode-2)
+- [Kubernetes 101 Workshop](#kubernetes-101-workshop)
 
 ## Requirements
 
@@ -40,13 +39,10 @@ vagrant version
 
 ```sh
 cd ~/ && git clone https://github.com/sufuf3/hands-on-w-tutorials.git
-cd ~/hands-on-w-tutorials/2018-12-06/ && vagrant up --provider=virtualbox
+cd ~/hands-on-w-tutorials/2019-01-03/ && vagrant up --provider=virtualbox
 ```
 
-## Kubernetes advanced resource features - Episode 1
+## Kubernetes 101 Workshop
 
-- Slides: http://bit.ly/k8s1206
+- Slides: http://bit.ly/sufuf3_20190103
 
-## Kubernetes advanced resource features - Episode 2
-
-- Slides: http://bit.ly/k8s1207
