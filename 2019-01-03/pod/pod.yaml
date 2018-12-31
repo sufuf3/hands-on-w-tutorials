@@ -1,0 +1,12 @@
+# Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: mycontainer
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
