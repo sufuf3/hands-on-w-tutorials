@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Requirements](#requirements)
-- [Kubernetes 101 Workshop](#kubernetes-101-workshop)
+- [Getting Started with Kubernetes](#getting-started-with-kubernetes)
 
 ## Requirements
 
@@ -42,7 +42,7 @@ cd ~/ && git clone https://github.com/sufuf3/hands-on-w-tutorials.git
 cd ~/hands-on-w-tutorials/2019-01-03/ && vagrant up --provider=virtualbox
 ```
 
-## Kubernetes 101 Workshop
+## Getting Started with Kubernetes
 
 - Slides: http://bit.ly/sufuf3_20190103
 
