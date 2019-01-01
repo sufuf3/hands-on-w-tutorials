@@ -27,6 +27,7 @@ sudo apt-get update
 sudo apt-get install -y git nfs-common ntp jq bats httpie silversearcher-ag vim cmake tcpdump unzip tig socat traceroute
 sudo apt-get -y -qq install clang doxygen hugepages build-essential libnuma-dev libpcap-dev linux-headers-`uname -r` dh-autoreconf libssl-dev libcap-ng-dev openssl python python-pip htop bridge-utils
 cd ~/ && git clone https://github.com/sufuf3/hands-on-w-tutorials.git
+sudo sysctl net.bridge.bridge-nf-call-iptables=1
 
 # Install Docker
 # kubernetes official max validated version: 17.06.2~ce-0~ubuntu-xenial
@@ -56,9 +57,10 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Should give flannel the real network interface name
-wget --quiet https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml -O /tmp/kube-flannel.yml
-sed -i -- 's/"--kube-subnet-mgr"/"--kube-subnet-mgr", "--iface='"$NET_IF_NAME"'"/g' /tmp/kube-flannel.yml
-kubectl apply -f /tmp/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+#wget --quiet https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml -O /tmp/kube-flannel.yml
+#sed -i -- 's/"--kube-subnet-mgr"/"--kube-subnet-mgr", "--iface='"$NET_IF_NAME"'"/g' /tmp/kube-flannel.yml
+#kubectl apply -f /tmp/kube-flannel.yml
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
 # Install helm
@@ -72,7 +74,7 @@ kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"templat
 
 
 # Install Kubernetes dashboard
-kubectl create -f kubernetes-dashboard/kubernetes-dashboard.yaml
+kubectl create -f ~/hands-on-w-tutorials/2019-01-03/kubernetes-dashboard/kubernetes-dashboard.yaml
 kubectl -n kube-system create sa dashboard
 kubectl create clusterrolebinding dashboard --clusterrole cluster-admin --serviceaccount=kube-system:dashboard
 
